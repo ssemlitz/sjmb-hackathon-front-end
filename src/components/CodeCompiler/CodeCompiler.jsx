@@ -62,11 +62,11 @@ const CodeCompiler = () => {
   const checkStatus = useCallback(async (token) => {
     const options = {
       method: "GET",
-      url: "https://judge0-ce.p.rapidapi.com/submissions/" + token,
+      url:process.env.REACT_APP_RAPID_API_URL + "/" + token,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
-        "X-RapidAPI-Host": "https://judge0-ce.p.rapidapi.com",
-        "X-RapidAPI-Key": "06612c2d23msh428e4141c340257p1e12bcjsnc147f546542e",
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
       },
     };
     try {
